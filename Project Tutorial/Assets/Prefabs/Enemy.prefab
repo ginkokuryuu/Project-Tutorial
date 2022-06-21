@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: 7815371044791450175, guid: 65daf38a79dce1b42ad6722668f64872, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.67058825, g: 0.32156864, b: 0.21176471, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -113,6 +113,7 @@ GameObject:
   - component: {fileID: 440207001872555341}
   - component: {fileID: 2784521258423168451}
   - component: {fileID: 5261582492240129707}
+  - component: {fileID: 3007957727582406679}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
@@ -155,7 +156,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 7
 --- !u!61 &5261582492240129707
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -182,3 +183,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.375, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &3007957727582406679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2599290367993117560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: feb67a75cae869542bf0903d6c743401, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
