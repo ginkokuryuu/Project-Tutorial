@@ -16,6 +16,7 @@ public class Gun : MonoBehaviour
     [SerializeField] protected float bulletTime = 10f;
     [SerializeField] protected float bulletSpeed = 5f; 
     [SerializeField] protected GameObject bulletPrefab = null;
+    [SerializeField] protected Transform gunPoint;
     Transform gunTip;
     float shootCooldown = 0f;
     float shootTimer = 0f;
@@ -42,6 +43,11 @@ public class Gun : MonoBehaviour
             {
                 readyToShoot = true;
             }
+        }
+
+        if (gunPoint)
+        {
+            transform.position = gunPoint.position;
         }
     }
 

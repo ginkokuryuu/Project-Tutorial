@@ -4,15 +4,26 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] int maxHealth = 5;
+    int currentHealth;
+
+    private void Awake()
     {
-        
+        currentHealth = maxHealth;
     }
 
-    // Update is called once per frame
-    void Update()
+    void EnemyDie()
     {
-        
+        transform.GetChild(1).gameObject.SetActive(true);
+        Destroy(gameObject);
+    }
+
+    public void Damaged(int _damage)
+    {
+        currentHealth -= _damage;
+        if(currentHealth <= 0)
+        {
+            EnemyDie();
+        }
     }
 }

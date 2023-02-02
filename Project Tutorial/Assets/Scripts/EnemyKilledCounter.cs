@@ -10,6 +10,6 @@ public class EnemyKilledCounter : MonoBehaviour
     void EnemyKilled()
     {
         enemyKilled += 1;
-        enemyKilledText.tag = enemyKilled.ToString("00");
+        enemyKilledText.text = enemyKilled.ToString("00");
     }
 }

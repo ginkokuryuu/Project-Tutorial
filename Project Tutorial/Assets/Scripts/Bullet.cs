@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    ParticleSystem trailParticle;
+    ParticleSystem.ShapeModule trailShape;
     float lifetime;
     Rigidbody2D rb2d;
 
     private void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        trailParticle = transform.GetChild(0).GetComponent<ParticleSystem>();
+        trailShape = trailParticle.shape;
     }
 
     // Start is called before the first frame update
@@ -30,6 +34,8 @@ public class Bullet : MonoBehaviour
         transform.position = _origin;
         rb2d.velocity = _direction * _speed;
 
+        trailShape.scale = trailParticle.shape.scale * _direction.x;
+
         StartCoroutine(LifetimeTimer());
     }
 
@@ -47,8 +53,12 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        StopCoroutine(LifetimeTimer());
+        if(collision.collider.TryGetComponent<Enemy>(out Enemy _enemy))
+        {
+            _enemy.Damaged(1);
+        }
 
+        StopCoroutine(LifetimeTimer());
         DestroyBullet();
     }
 }

@@ -69,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
 
     void CheckOnGround()
     {
-        rayOrigin.Set(transform.position.x - myCollider.bounds.extents.x + groundDetectionPadding, transform.position.y - myCollider.bounds.extents.y - groundDistanceDetection);
+        rayOrigin.Set(transform.position.x - myCollider.bounds.extents.x + groundDetectionPadding + myCollider.offset.x, transform.position.y - myCollider.bounds.extents.y - groundDistanceDetection + myCollider.offset.y);
         RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.right, (myCollider.bounds.extents.x - groundDetectionPadding) * 2, groundLayerMask);
         if (hit)
         {
